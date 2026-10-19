@@ -1,0 +1,41 @@
+{
+    "PMJAY-2026-V1": {
+        "covered_packages": {
+            "HBP-101": {
+                "name": "Total Knee Arthroplasty",
+                "clause_id": "CL-COV-101",
+                "waiting_period_months": 24
+            },
+            "HBP-202": {
+                "name": "Robotic Cholecystectomy",
+                "clause_id": "CL-COV-202",
+                "waiting_period_months": 12
+            },
+            "HBP-305": {
+                "name": "Coronary Angioplasty (PTCA)",
+                "clause_id": "CL-COV-305",
+                "waiting_period_months": 0
+            }
+        },
+        "exclusion_riders": [
+            {
+                "rider_id": "EX-RIDER-01",
+                "target_package": "HBP-101",
+                "excluded_condition_icd10": "M17.0",
+                "description": "HBP-101 excluded when performed for condition M17.0 under Rider 01"
+            },
+            {
+                "rider_id": "EX-RIDER-02",
+                "target_package": "HBP-202",
+                "excluded_condition_icd10": "K80.2",
+                "description": "Robotic package HBP-202 excluded for uncomplicated K80.2"
+            },
+            {
+                "rider_id": "EX-RIDER-03",
+                "target_package": "HBP-305",
+                "excluded_condition_icd10": "Z00.0",
+                "description": "Angioplasty excluded for diagnostic-only/screening admission Z00.0"
+            }
+        ]
+    }
+}

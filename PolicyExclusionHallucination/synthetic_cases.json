@@ -1,0 +1,134 @@
+[
+    {
+        "case_id": "TC-01",
+        "scenario": "Procedure covered; no exclusion applies",
+        "policy_id": "PMJAY-2026-V1",
+        "procedure_code": "HBP-305",
+        "diagnosis_icd10": "I21.9",
+        "policy_tenure_months": 6,
+        "evidence_complete": true,
+        "ground_truth": "COVERED",
+        "is_ground_truth_excluded": false
+    },
+    {
+        "case_id": "TC-02",
+        "scenario": "Procedure not in policy package list",
+        "policy_id": "PMJAY-2026-V1",
+        "procedure_code": "HBP-999",
+        "diagnosis_icd10": "Z41.1",
+        "policy_tenure_months": 36,
+        "evidence_complete": true,
+        "ground_truth": "NOT COVERED",
+        "is_ground_truth_excluded": false
+    },
+    {
+        "case_id": "TC-03",
+        "scenario": "General coverage exists; explicit exclusion rider applies (M17.0)",
+        "policy_id": "PMJAY-2026-V1",
+        "procedure_code": "HBP-101",
+        "diagnosis_icd10": "M17.0",
+        "policy_tenure_months": 36,
+        "evidence_complete": true,
+        "ground_truth": "NOT COVERED",
+        "is_ground_truth_excluded": true
+    },
+    {
+        "case_id": "TC-04",
+        "scenario": "Expensive & medically necessary, but Rider EX-RIDER-02 blocks it",
+        "policy_id": "PMJAY-2026-V1",
+        "procedure_code": "HBP-202",
+        "diagnosis_icd10": "K80.2",
+        "policy_tenure_months": 24,
+        "evidence_complete": true,
+        "ground_truth": "NOT COVERED",
+        "is_ground_truth_excluded": true
+    },
+    {
+        "case_id": "TC-05",
+        "scenario": "Exclusion rider exists for HBP-101, but patient ICD-10 is missing from docs",
+        "policy_id": "PMJAY-2026-V1",
+        "procedure_code": "HBP-101",
+        "diagnosis_icd10": null,
+        "policy_tenure_months": 36,
+        "evidence_complete": false,
+        "ground_truth": "MANUAL REVIEW",
+        "is_ground_truth_excluded": false
+    },
+    {
+        "case_id": "TC-06",
+        "scenario": "Policy version text is missing / unverified in Knowledge Base",
+        "policy_id": "UNKNOWN-POLICY-V0",
+        "procedure_code": "HBP-101",
+        "diagnosis_icd10": "M17.1",
+        "policy_tenure_months": 36,
+        "evidence_complete": true,
+        "ground_truth": "MANUAL REVIEW",
+        "is_ground_truth_excluded": false
+    },
+    {
+        "case_id": "TC-07",
+        "scenario": "Exclusion rider applies only to a different condition (M17.1 is valid)",
+        "policy_id": "PMJAY-2026-V1",
+        "procedure_code": "HBP-101",
+        "diagnosis_icd10": "M17.1",
+        "policy_tenure_months": 30,
+        "evidence_complete": true,
+        "ground_truth": "COVERED",
+        "is_ground_truth_excluded": false
+    },
+    {
+        "case_id": "TC-08",
+        "scenario": "Policy has a 24-month waiting period that has not ended (10 months elapsed)",
+        "policy_id": "PMJAY-2026-V1",
+        "procedure_code": "HBP-101",
+        "diagnosis_icd10": "M17.1",
+        "policy_tenure_months": 10,
+        "evidence_complete": true,
+        "ground_truth": "NOT COVERED",
+        "is_ground_truth_excluded": true
+    },
+    {
+        "case_id": "TC-09",
+        "scenario": "Policy has a 12-month waiting period that has ended (18 months elapsed)",
+        "policy_id": "PMJAY-2026-V1",
+        "procedure_code": "HBP-202",
+        "diagnosis_icd10": "K80.0",
+        "policy_tenure_months": 18,
+        "evidence_complete": true,
+        "ground_truth": "COVERED",
+        "is_ground_truth_excluded": false
+    },
+    {
+        "case_id": "TC-10",
+        "scenario": "Screening admission excluded by EX-RIDER-03 despite valid procedure code",
+        "policy_id": "PMJAY-2026-V1",
+        "procedure_code": "HBP-305",
+        "diagnosis_icd10": "Z00.0",
+        "policy_tenure_months": 12,
+        "evidence_complete": true,
+        "ground_truth": "NOT COVERED",
+        "is_ground_truth_excluded": true
+    },
+    {
+        "case_id": "TC-11",
+        "scenario": "Waiting period applicability is unknown (missing policy enrollment date)",
+        "policy_id": "PMJAY-2026-V1",
+        "procedure_code": "HBP-202",
+        "diagnosis_icd10": "K80.0",
+        "policy_tenure_months": null,
+        "evidence_complete": false,
+        "ground_truth": "MANUAL REVIEW",
+        "is_ground_truth_excluded": false
+    },
+    {
+        "case_id": "TC-12",
+        "scenario": "12-month waiting period violated for HBP-202 (only 3 months tenure)",
+        "policy_id": "PMJAY-2026-V1",
+        "procedure_code": "HBP-202",
+        "diagnosis_icd10": "K80.0",
+        "policy_tenure_months": 3,
+        "evidence_complete": true,
+        "ground_truth": "NOT COVERED",
+        "is_ground_truth_excluded": true
+    }
+]
