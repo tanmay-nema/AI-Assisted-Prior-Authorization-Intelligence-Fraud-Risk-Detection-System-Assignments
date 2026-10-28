@@ -1,0 +1,6 @@
+layer_or_rule,controlled_scenario,observed_result,passed
+Layer 1 - clinical consistency,Injected hysterectomy/anatomy inconsistency,FLAG_FOR_CLINICAL_REVIEW,True
+Layer 1 - unbundled billing,Injected included item billed separately,FLAG_FOR_REVIEW,True
+Layer 1 - overlapping admissions,Injected overlapping dates across hospitals,FLAG_FOR_REVIEW,True
+Layer 2 - statistical anomaly,Injected extreme bill and duration in test copy,IF=ANOMALY; >3SD=NOT_EVALUATED_SMALL_GROUP,True
+Layer 3 - NetworkX collision,Injected overlapping surgery schedules across hospitals,1 collision pair(s),True
